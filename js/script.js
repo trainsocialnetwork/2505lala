@@ -1,128 +1,211 @@
-// Loading
-window.addEventListener('load', () => {
-    const loading = document.getElementById('loading');
-    if (loading) { // 要素が存在するか確認
-        loading.style.opacity = '0';
-        setTimeout(() => {
-            loading.style.display = 'none';
-        }, 500);
-    }
+// js/script.js
+
+// DOM Content Loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all modules
+    initLoading();
+    initHeader();
+    initMobileMenu();
+    initSmoothScroll();
+    initScrollAnimations();
+    initNewsTabs();
 });
 
+// Loading Screen
+function initLoading() {
+    window.addEventListener('load', () => {
+        const loading = document.getElementById('loading');
+        if (loading) {
+            loading.style.opacity = '0';
+            setTimeout(() => {
+                loading.style.display = 'none';
+            }, 500);
+        }
+    });
+}
+
+// Header Scroll Effects
+function initHeader() {
+    const header = document.querySelector('.header');
+    let lastScroll = 0;
+
+    if (header) {
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+    }
+}
+
 // Mobile Menu
-const hamburger = document.getElementById('hamburger');
-const drawer = document.getElementById('drawer');
-const drawerClose = document.getElementById('drawer-close');
+function initMobileMenu() {
+    const menuTrigger = document.getElementById('menu-trigger');
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    const drawerClose = document.getElementById('drawer-close');
 
-if (hamburger && drawer && drawerClose) { // 要素が存在するか確認
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        drawer.classList.toggle('active');
-        document.body.classList.toggle('drawer-open'); // bodyにクラスを付与して背景固定などに対応
-    });
+    if (menuTrigger && drawer && drawerOverlay && drawerClose) {
+        // Open menu
+        menuTrigger.addEventListener('click', () => {
+            menuTrigger.classList.add('active');
+            drawer.classList.add('active');
+            drawerOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
 
-    drawerClose.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        drawer.classList.remove('active');
-        document.body.classList.remove('drawer-open');
-    });
-
-    // Drawer menu links click event
-    const drawerLinks = drawer.querySelectorAll('a[href^="#"]');
-    drawerLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
+        // Close menu
+        const closeMenu = () => {
+            menuTrigger.classList.remove('active');
             drawer.classList.remove('active');
-            document.body.classList.remove('drawer-open');
-            // Smooth scrollは下の共通処理に任せる
+            drawerOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        drawerClose.addEventListener('click', closeMenu);
+        drawerOverlay.addEventListener('click', closeMenu);
+
+        // Close menu on anchor click
+        const drawerLinks = drawer.querySelectorAll('a[href^="#"]');
+        drawerLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    }
+}
+
+// Smooth Scroll
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            if (href === '#' || href === '') {
+                e.preventDefault();
+                return;
+            }
+
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                const header = document.querySelector('.header');
+                const headerHeight = header ? header.offsetHeight : 0;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 }
 
+// Scroll Animations
+function initScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll, .animate-on-scroll-left, .animate-on-scroll-right, .animate-on-scroll-scale');
+    
+    if (animatedElements.length === 0) return;
 
-// Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        // href="#" や href="" の場合は何もしない
-        if (href === '#' || href === '') {
-            e.preventDefault();
-            return;
-        }
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
-        const target = document.querySelector(href);
-        if (target) {
-            e.preventDefault();
-            const header = document.querySelector('.header');
-            const headerHeight = header ? header.offsetHeight : 0;
-            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20; // 20pxのオフセット
-
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-
-            // Close drawer if open (ハンバーガーメニューが開いていたら閉じる)
-            if (hamburger && drawer && hamburger.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                drawer.classList.remove('active');
-                if (document.body.classList.contains('drawer-open')) {
-                    document.body.classList.remove('drawer-open');
-                }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                
+                // Add stagger effect for multiple items
+                const siblings = entry.target.parentElement.querySelectorAll('.animate-on-scroll, .animate-on-scroll-left, .animate-on-scroll-right, .animate-on-scroll-scale');
+                siblings.forEach((sibling, index) => {
+                    setTimeout(() => {
+                        sibling.classList.add('is-visible');
+                    }, index * 100);
+                });
+                
+                observer.unobserve(entry.target);
             }
-        }
-    });
-});
+        });
+    }, observerOptions);
 
-// Scroll Animation
-const observerOptions = {
-    threshold: 0.1, // 要素が10%見えたら発火
-    rootMargin: '0px 0px -50px 0px' // 画面下部より50px手前で判定開始
-};
-
-const observer = new IntersectionObserver((entries, obs) => { // obsを引数に追加
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            obs.unobserve(entry.target); // 一度表示されたら監視を解除（パフォーマンス向上のため）
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.animate').forEach(el => {
-    observer.observe(el);
-});
-
-// Header Shadow on Scroll
-let lastScroll = 0;
-const header = document.querySelector('.header');
-
-if (header) { // header要素が存在するか確認
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll <= 0) { // ページトップの場合
-            header.classList.remove('header-scrolled');
-            header.style.boxShadow = '0 1px 10px rgba(0, 0, 0, 0.05)'; // 初期スタイルに戻す
-            return;
-        }
-
-        if (currentScroll > lastScroll && !header.classList.contains('header-hidden')) {
-            // Scroll Down - 必要であればヘッダーを隠す処理
-            // header.classList.add('header-hidden');
-        } else if (currentScroll < lastScroll && header.classList.contains('header-hidden')) {
-            // Scroll Up - ヘッダーを再表示する処理
-            // header.classList.remove('header-hidden');
-        }
-
-        if (currentScroll > 100) {
-            header.classList.add('header-scrolled'); // スクロール状態を示すクラス
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.classList.remove('header-scrolled');
-            header.style.boxShadow = '0 1px 10px rgba(0, 0, 0, 0.05)';
-        }
-
-        lastScroll = currentScroll;
+    animatedElements.forEach(el => {
+        observer.observe(el);
     });
 }
+
+// News Tabs
+function initNewsTabs() {
+    const tabs = document.querySelectorAll('.news-tab');
+    const newsItems = document.querySelectorAll('.news-item');
+
+    if (tabs.length === 0 || newsItems.length === 0) return;
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active class from all tabs
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            tab.classList.add('active');
+            
+            // Get selected category
+            const category = tab.getAttribute('data-category');
+            
+            // Filter news items
+            newsItems.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                    // Trigger reflow for animation
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+}
+
+// Utility Functions
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+function throttle(func, limit) {
+    let inThrottle;
+    return function(...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
+// Performance optimization for scroll events
+const optimizedScroll = throttle(() => {
+    // Add any scroll-based functions here
+}, 100);
+
+window.addEventListener('scroll', optimizedScroll);
