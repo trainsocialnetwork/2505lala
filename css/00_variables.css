@@ -2,19 +2,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;600&family=Lora:wght@400;500&family=Poppins:wght@300;400;500;600&display=swap');
 
 :root {
-    --primary-gold: #B8956F;
-    --primary-pink: #E4A5A0;
-    --secondary-pink: #FAF4F4;
-    --accent-pink: #F7E8E8;
-    --text-main: #333333;
+    /* Primary Colors */
+    --primary-gold: #C9A961;
+    --primary-pink: #E8B4B1;
+    --secondary-pink: #FDF8F7;
+    --accent-pink: #F9E8E6;
+    
+    /* Text Colors */
+    --text-main: #2C2C2C;
     --text-sub: #666666;
     --text-light: #999999;
-    --bg-cream: #FFF9F5;
-    --bg-beige: #F8F4F0;
+    --text-white: #FFFFFF;
+    
+    /* Background Colors */
+    --bg-cream: #FFFAF8;
+    --bg-beige: #FAF6F3;
+    --bg-light: #FEFEFE;
     --white: #FFFFFF;
-    --border-light: #E8E8E8;
-    --shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.06);
-    --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+    
+    /* Borders & Lines */
+    --border-light: #F0E8E6;
+    --border-lighter: #F8F4F2;
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.06);
+    
+    /* LINE Color */
     --line-green: #00B900;
     --line-green-hover: #009900;
+    
+    /* Transitions */
+    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Spacing */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 32px;
+    --space-xl: 48px;
+    --space-2xl: 64px;
+    --space-3xl: 96px;
+    --space-4xl: 128px;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-2xl: 32px;
+    --radius-full: 9999px;
 }
