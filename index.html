@@ -4,72 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LALA Beauty Clinic - まだ出会ったことのない、新しい自分へ</title>
-
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/icon.png">
+    
+    <!-- CSS Files -->
     <link rel="stylesheet" href="css/00_variables.css">
     <link rel="stylesheet" href="css/01_base.css">
     <link rel="stylesheet" href="css/02_layout.css">
     <link rel="stylesheet" href="css/03_components.css">
     <link rel="stylesheet" href="css/04_sections.css">
-
-    </head>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 <body>
+    <!-- Loading Screen -->
     <div class="loading" id="loading">
-        <div class="loading-spinner"></div>
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="images/icon.png" alt="LALA Beauty Clinic">
+            </div>
+            <div class="loading-spinner"></div>
+        </div>
     </div>
 
-    <aside class="left-fixed-menu">
-        <div class="left-menu-header">
-            <p class="left-menu-title">各種サービス、<br>お気軽にお問い合わせください！</p>
-        </div>
-        <div class="left-menu-items">
-            <div class="left-menu-item">
-                <div class="left-menu-bg" style="background-image: url('images/artmake.png');"></div>
-                <h4 class="left-menu-service">アートメイク</h4>
-                <p class="left-menu-desc">時間を短縮し、いつでもキレイを維持</p>
-                <a href="#artmake" class="left-menu-btn">問い合わせる</a>
-            </div>
-            <div class="left-menu-item">
-                <div class="left-menu-bg" style="background-image: url('images/zeoskin.png');"></div>
-                <h4 class="left-menu-service">ゼオスキン</h4>
-                <p class="left-menu-desc">40代以降の肌質改善</p>
-                <a href="#zeoskin" class="left-menu-btn">問い合わせる</a>
-            </div>
-            <div class="left-menu-item">
-                <div class="left-menu-bg" style="background-image: url('images/faga.png');"></div>
-                <h4 class="left-menu-service">FAGA（女性向けAGA）</h4>
-                <p class="left-menu-desc">女性ならではの薄毛の悩みを改善</p>
-                <a href="#faga" class="left-menu-btn">問い合わせる</a>
-            </div>
-            <div class="left-menu-item">
-                <div class="left-menu-bg" style="background-image: url('images/romapink.png');"></div>
-                <h4 class="left-menu-service">ローマピンク</h4>
-                <p class="left-menu-desc">乳首の黒ずみを改善</p>
-                <a href="#romapink" class="left-menu-btn">問い合わせる</a>
-            </div>
-            <div class="left-menu-item">
-                <div class="left-menu-bg" style="background-image: url('images/shimi.png');"></div>
-                <h4 class="left-menu-service">シミ取り</h4>
-                <p class="left-menu-desc">お肌のシミにお悩みを改善</p>
-                <a href="#shimi" class="left-menu-btn">問い合わせる</a>
-            </div>
-        </div>
-    </aside>
-
+    <!-- Header -->
     <header class="header" id="header">
-        <div class="header-inner">
-            <a href="#" class="logo">
+        <div class="header-inner container-wide">
+            <a href="/" class="logo">
                 <img src="images/icon.png" alt="LALA Beauty Clinic">
                 <span class="logo-text">LALA Beauty Clinic</span>
             </a>
+            
             <nav class="nav-menu">
-                <a href="#approach">LALAの総合美容アプローチ</a>
-                <a href="#recommend">Recommend</a>
-                <a href="#services">5つのビューティーアプローチ</a>
-                <a href="#reasons">LaLaが選ばれる理由</a>
-                <a href="#access">アクセス・営業時間</a>
-                <a href="#news">お知らせ・コラム</a>
-                <a href="#" class="nav-cta btn">WEB予約はこちら</a>
+                <a href="#services">施術メニュー</a>
+                <a href="#campaign">キャンペーン</a>
+                <a href="#service-details">施術詳細</a>
+                <a href="#reasons">選ばれる理由</a>
+                <a href="#access">アクセス</a>
+                <a href="#news">お知らせ</a>
+                <a href="#" class="nav-cta">WEB予約</a>
             </nav>
+            
             <div class="menu-trigger" id="menu-trigger">
                 <span></span>
                 <span></span>
@@ -78,6 +55,7 @@
         </div>
     </header>
 
+    <!-- Mobile Menu -->
     <div class="drawer-overlay" id="drawer-overlay"></div>
     <div class="drawer-menu" id="drawer">
         <div class="drawer-header">
@@ -85,385 +63,568 @@
             <span class="drawer-close" id="drawer-close">&times;</span>
         </div>
         <nav class="drawer-nav">
-            <a href="#approach">LALAの総合美容アプローチ</a>
-            <a href="#recommend">Recommend</a>
-            <a href="#services">理想をカタチにする5つのアプローチ</a>
-            <div class="drawer-submenu">
-                <a href="#artmake">アートメイク</a>
-                <a href="#zeoskin">ゼオスキン</a>
-                <a href="#faga">FAGA</a>
-                <a href="#romapink">ローマピンク</a>
-                <a href="#shimi">シミ取り</a>
-            </div>
-            <a href="#reasons">LaLaが選ばれる理由</a>
-            <a href="#access">アクセス・営業時間</a>
-            <a href="#news">お知らせ・コラム</a>
+            <a href="#services">施術メニュー</a>
+            <a href="#campaign">キャンペーン</a>
+            <a href="#service-details">施術詳細</a>
+            <a href="#reasons">選ばれる理由</a>
+            <a href="#access">アクセス</a>
+            <a href="#news">お知らせ</a>
         </nav>
-        <a href="#" class="drawer-cta btn">WEB予約はこちら</a>
-        <div class="drawer-contact">
-            <p>お電話でのお問い合わせ</p>
-            <a href="tel:0312345678">03-1234-5678</a>
-            <p>受付時間: 10:00～19:00</p>
+        <div class="drawer-cta">
+            <a href="#" class="btn btn-primary btn-large">WEB予約はこちら</a>
         </div>
     </div>
 
+    <!-- Main Content -->
     <main>
+        <!-- Hero Section -->
         <section class="hero" id="hero">
-            <div class="hero-bg-decoration"></div>
+            <div class="hero-background">
+                <img src="images/hero-bg.jpg" alt="LALA Beauty Clinic">
+            </div>
             <div class="hero-content">
-                <p class="hero-subtitle">まだ出会ったことのない、</p>
+                <p class="hero-subtitle en-font">DISCOVER YOUR NEW SELF</p>
                 <h1 class="hero-title">
+                    まだ出会ったことのない<br>
                     <strong>新しい自分へ</strong>
                 </h1>
-                <p class="hero-subtitle-bottom">LALA Beauty Clinicがあなたの理想を叶えるお手伝いをします</p>
-                <p class="hero-lead">
-                    LALA Beauty Clinicは、アートメイクから最新の美容皮膚治療まで、<br>
-                    お一人おひとりのお悩みに寄り添い、確かな技術と心温まるおもてなしで、<br>
-                    あなたの「なりたい」をサポートします。
+                <p class="hero-description">
+                    LALA Beauty Clinicは、最新の美容医療技術と<br>
+                    心温まるおもてなしで、あなたの「なりたい」を叶えます
                 </p>
                 <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary">無料カウンセリング予約</a>
-                    <a href="#" class="btn btn-secondary">LINEで相談する</a>
-                </div>
-            </div>
-            <div class="scroll-indicator en-font">SCROLL</div>
-        </section>
-
-        <section id="approach" class="section">
-            <div class="section-header">
-                <p class="section-title-en">APPROACH</p>
-                <h2 class="section-title-ja">LALAの総合美容アプローチ</h2>
-                <div class="section-line"></div>
-                <p class="section-description">
-                    当クリニックでは、お悩みに合わせて選べる5つの美容アプローチをご用意しています。<br>
-                    あなたに最適な施術がきっと見つかります。
-                </p>
-            </div>
-            <div class="service-cards">
-                <div class="service-card">
-                    <div class="service-card-image" style="background: linear-gradient(135deg, #FFE0EC 0%, #FFC0CB 100%);"></div>
-                    <div class="service-card-content">
-                        <h3>アートメイク</h3>
-                        <p>すっぴんにも自信。毎日のメイク時間を短縮し、理想の眉・アイラインをキープ。</p>
-                        <a href="#artmake" class="service-card-link">詳しくはこちら</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-image" style="background: linear-gradient(135deg, #E3F2FD 0%, #90CAF9 100%);"></div>
-                    <div class="service-card-content">
-                        <h3>ゼオスキン</h3>
-                        <p>40代以降の肌質改善。透明感とハリのある健康的な肌へ。</p> <a href="#zeoskin" class="service-card-link">詳しくはこちら</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-image" style="background: linear-gradient(135deg, #E8F5E9 0%, #81C784 100%);"></div>
-                    <div class="service-card-content">
-                        <h3>FAGA（女性向けAGA治療）</h3>
-                        <p>女性のための薄毛治療。髪の悩みを解消し、豊かなボリュームを。</p>
-                        <a href="#faga" class="service-card-link">詳しくはこちら</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-image" style="background: linear-gradient(135deg, #FCE4EC 0%, #F48FB1 100%);"></div>
-                    <div class="service-card-content">
-                        <h3>ローマピンク</h3>
-                        <p>デリケートゾーンの黒ずみ改善。自信の持てる美しい素肌へ。</p>
-                        <a href="#romapink" class="service-card-link">詳しくはこちら</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-image" style="background: linear-gradient(135deg, #FFF8E1 0%, #FFD54F 100%);"></div>
-                    <div class="service-card-content">
-                        <h3>シミ取り</h3>
-                        <p>透明感あふれるクリアな肌へ。気になるシミを徹底ケア。</p>
-                        <a href="#shimi" class="service-card-link">詳しくはこちら</a>
-                    </div>
+                    <a href="#" class="btn btn-primary btn-large">無料カウンセリング予約</a>
+                    <a href="#" class="btn btn-secondary btn-large">LINEで相談する</a>
                 </div>
             </div>
         </section>
 
-        <section id="recommend" class="section campaign-section">
-            <div class="section-header">
-                <p class="section-title-en">RECOMMEND</p>
-                <h2 class="section-title-ja">おすすめ・キャンペーン</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="campaign-banner">
-                <div class="campaign-image">
-                    <p class="campaign-image-text en-font">SPECIAL CAMPAIGN</p>
+        <!-- Reasons Section -->
+        <section id="reasons" class="section reasons-section section-bg-pink">
+            <div class="section-inner">
+                <div class="section-header animate-on-scroll">
+                    <p class="section-subtitle">WHY CHOOSE US</p>
+                    <h2 class="section-title">
+                        LaLaが選ばれる理由
+                        <span>多くのお客様に支持される4つのポイント</span>
+                    </h2>
                 </div>
-                <div class="campaign-content">
-                    <span class="campaign-badge">期間限定</span>
-                    <h3 class="campaign-title serif">夏の美肌準備キャンペーン</h3>
-                    <p class="campaign-description">
-                        シミ取りレーザー + 美白点滴のセットが今なら30%OFF。<br>
-                        紫外線が強くなる前に、透明感のある肌を手に入れましょう。
-                    </p>
-                    <p class="campaign-period">キャンペーン期間: 202X年X月X日～X月X日</p>
-                    <a href="#" class="btn btn-primary">キャンペーン詳細を見る</a>
-                </div>
-            </div>
-        </section>
+                
+                <div class="reasons-grid">
+                    <div class="feature-block animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="feature-title">安心のサポート体制</h3>
+                        <p class="feature-text">
+                            カウンセリングからアフターケアまで、患者様に寄り添ったきめ細やかなサポートをお約束します。
+                        </p>
+                    </div>
 
-        <section id="services" class="section service-details-wrapper">
-            <div class="section-header">
-                 <p class="section-title-en">5 BEAUTY APPROACHES</p>
-                 <h2 class="section-title-ja">理想をカタチにする、LALAの5つのビューティーアプローチ</h2>
-                 <div class="section-line"></div>
-            </div>
+                    <div class="feature-block animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="feature-title">確かな技術力</h3>
+                        <p class="feature-text">
+                            最新の医療機器と熟練した医師・看護師による施術で、効果と安全性を追求しています。
+                        </p>
+                    </div>
 
-            <div id="artmake" class="service-detail-block">
-                <div class="service-image" style="background-image: url('images/artmake_detail.jpg');"></div>
-                <div class="service-detail-content">
-                    <h3 class="service-name">アートメイク</h3>
-                    <p class="service-description-main">LALAのアートメイクは、黄金比に基づいたオーダーメイドデザイン。医療機関だからできる、安心・安全な施術で、あなたの魅力を最大限に引き出します。毎朝のメイク時間もぐっと楽に。</p>
-                    <ul class="service-points">
-                        <li>経験豊富な専門アーティストが担当</li>
-                        <li>FDA認可の安全な色素を使用</li>
-                        <li>徹底した衛生管理とアフターフォロー</li>
-                    </ul>
-                    <div class="service-buttons">
-                        <a href="#" class="btn btn-service btn-primary">アートメイクを詳しく見る</a>
-                        <a href="#" class="btn btn-service btn-line">LINEで相談する</a>
+                    <div class="feature-block animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3 class="feature-title">予約の取りやすさ</h3>
+                        <p class="feature-text">
+                            WEB予約システムやLINE予約で、24時間いつでも簡単にご予約いただけます。
+                        </p>
                     </div>
-                </div>
-            </div>
 
-            <div id="zeoskin" class="service-detail-block">
-                <div class="service-image" style="background-image: url('images/zeoskin_detail.jpg');"></div>
-                <div class="service-detail-content">
-                    <h3 class="service-name">ゼオスキン</h3>
-                    <p class="service-description-main">医師の指導のもと、ご自宅で行うスキンケアプログラム。しみ、しわ、ニキビ跡など、様々なお肌の悩みを改善し、健康的で美しい肌へと導きます。</p>
-                    <ul class="service-points">
-                        <li>医師によるカスタマイズプログラム</li>
-                        <li>医療機関専売の高濃度成分</li>
-                        <li>継続的なフォローアップで安心</li>
-                    </ul>
-                    <div class="service-buttons">
-                        <a href="#" class="btn btn-service btn-primary">ゼオスキンを詳しく見る</a>
-                        <a href="#" class="btn btn-service btn-line">LINEで相談する</a>
-                    </div>
-                </div>
-            </div>
-             <div id="faga" class="service-detail-block">
-                <div class="service-image" style="background-image: url('images/faga_detail.jpg');"></div>
-                <div class="service-detail-content">
-                    <h3 class="service-name">FAGA（女性向けAGA治療）</h3>
-                    <p class="service-description-main">女性特有の薄毛・抜け毛のお悩みに、専門的な治療で応えます。内服薬や外用薬、注入治療など、症状に合わせた最適なプランをご提案。諦めていた方も、もう一度自信を取り戻しましょう。</p>
-                    <ul class="service-points">
-                        <li>女性の薄毛治療に特化した専門医</li>
-                        <li>プライバシーに配慮した個室対応</li>
-                        <li>発毛・育毛を促す多様な治療法</li>
-                    </ul>
-                    <div class="service-buttons">
-                        <a href="#" class="btn btn-service btn-primary">FAGAを詳しく見る</a>
-                        <a href="#" class="btn btn-service btn-line">LINEで相談する</a>
-                    </div>
-                </div>
-            </div>
-             <div id="romapink" class="service-detail-block">
-                <div class="service-image" style="background-image: url('images/romapink_detail.jpg');"></div>
-                <div class="service-detail-content">
-                    <h3 class="service-name">ローマピンク</h3>
-                    <p class="service-description-main">誰にも相談しづらいデリケートゾーンの黒ずみ。医療レーザー治療や専用ピーリングで、本来の美しいピンク色へ導きます。自信を持ってファッションやパートナーシップを楽しめるように。</p>
-                    <ul class="service-points">
-                        <li>女性医師・スタッフが対応可能</li>
-                        <li>最新の医療レーザー機器を使用</li>
-                        <li>短期間で効果を実感しやすい治療</li>
-                    </ul>
-                    <div class="service-buttons">
-                        <a href="#" class="btn btn-service btn-primary">ローマピンクを詳しく見る</a>
-                        <a href="#" class="btn btn-service btn-line">LINEで相談する</a>
-                    </div>
-                </div>
-            </div>
-            <div id="shimi" class="service-detail-block">
-                <div class="service-image" style="background-image: url('images/shimi_detail.jpg');"></div>
-                <div class="service-detail-content">
-                    <h3 class="service-name">シミ取り</h3>
-                    <p class="service-description-main">気になる顔や体のシミを、医療レーザーで根本から改善。シミの種類や肌質に合わせて最適な治療法を選択し、透明感のあるワントーン明るい肌を目指します。</p>
-                    <ul class="service-points">
-                        <li>シミの種類を的確に診断</li>
-                        <li>Qスイッチレーザーなど多様な機器</li>
-                        <li>アフターケアまでしっかりサポート</li>
-                    </ul>
-                    <div class="service-buttons">
-                        <a href="#" class="btn btn-service btn-primary">シミ取りを詳しく見る</a>
-                        <a href="#" class="btn btn-service btn-line">LINEで相談する</a>
+                    <div class="feature-block animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="feature-title">経験豊富なスタッフ</h3>
+                        <p class="feature-text">
+                            美容医療の知識と経験が豊富なスタッフが、お一人おひとりに最適なプランをご提案します。
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="reasons" class="section reasons-section">
-            <div class="section-header">
-                <p class="section-title-en">REASON</p>
-                <h2 class="section-title-ja">LaLaが選ばれる理由</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="reason-blocks">
-                <div class="reason-block">
-                    <div class="reason-icon">💡</div> <h3 class="reason-title">安心のサポート体制</h3>
-                    <p class="reason-description-sub">カウンセリングからアフターケアまで、患者様に寄り添ったきめ細やかなサポートをお約束します。不安なことは何でもご相談ください。</p>
-                </div>
-                <div class="reason-block">
-                    <div class="reason-icon">🎯</div> <h3 class="reason-title">確かな技術力</h3>
-                    <p class="reason-description-sub">最新の医療機器と熟練した医師・看護師による施術で、効果と安全性を追求。常に技術の研鑽に努めています。</p>
-                </div>
-                <div class="reason-block">
-                    <div class="reason-icon">🗓️</div> <h3 class="reason-title">予約の取りやすさ</h3>
-                    <p class="reason-description-sub">WEB予約システムやLINE予約で、24時間いつでも簡単にご予約いただけます。通いやすさもLALAの魅力です。</p>
-                </div>
-                <div class="reason-block">
-                    <div class="reason-icon">🤝</div> <h3 class="reason-title">経験豊富なスタッフによる丁寧な対応</h3>
-                    <p class="reason-description-sub">美容医療の知識と経験が豊富なスタッフが、お一人おひとりに最適なプランをご提案。親身な対応を心がけています。</p>
-                </div>
-            </div>
-        </section>
-
+        <!-- Access Section -->
         <section id="access" class="section access-section">
-            <div class="section-header">
-                <p class="section-title-en">ACCESS</p>
-                <h2 class="section-title-ja">アクセス・診療時間</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="access-content">
-                <div class="access-info">
-                    <div class="access-item">
-                        <span class="access-label">クリニック名</span>
-                        <p>LALA Beauty Clinic</p>
-                    </div>
-                    <div class="access-item">
-                        <span class="access-label">住所</span>
-                        <p>〒150-0002 東京都渋谷区渋谷X-X-X ABCビルディング YF</p>
-                    </div>
-                    <div class="access-item">
-                        <span class="access-label">電話番号</span>
-                        <p><a href="tel:0312345678">03-1234-5678</a></p>
-                    </div>
-                    <div class="access-item">
-                        <span class="access-label">診療時間</span>
-                        <p>10:00～19:00 （最終受付 18:30）</p>
-                    </div>
-                    <div class="access-item">
-                        <span class="access-label">休診日</span>
-                        <p>火曜日・日曜日・祝日</p>
-                    </div>
-                    <div class="access-item">
-                        <span class="access-label">アクセス</span>
-                        <p>JR渋谷駅 ハチ公口より徒歩5分<br>東京メトロ銀座線 渋谷駅 宮益坂口より徒歩3分</p>
-                    </div>
-                    <div class="access-cta">
-                        <a href="https://maps.google.com/?q=YOUR_CLINIC_ADDRESS_OR_COORDINATES" target="_blank" class="btn btn-secondary">Google Mapで見る</a>
-                    </div>
+            <div class="section-inner">
+                <div class="section-header animate-on-scroll">
+                    <p class="section-subtitle">ACCESS</p>
+                    <h2 class="section-title">
+                        アクセス・診療時間
+                        <span>渋谷駅から徒歩5分の好立地</span>
+                    </h2>
                 </div>
-                <div class="access-map">
-                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.591690586904!2d139.70032281562554!3d35.66242918019876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b58b1959e69%3A0x2775172125410568!2z5riL6LC36aeF!5e0!3m2!1sja!2sjp!4v1622000000000!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                
+                <div class="access-container">
+                    <div class="access-content">
+                        <div class="access-info animate-on-scroll-left">
+                            <div class="access-info-grid">
+                                <div class="access-info-item">
+                                    <p class="access-info-label">クリニック名</p>
+                                    <p class="access-info-text">LALA Beauty Clinic</p>
+                                </div>
+                                <div class="access-info-item">
+                                    <p class="access-info-label">住所</p>
+                                    <p class="access-info-text">
+                                        〒150-0002<br>
+                                        東京都渋谷区渋谷X-X-X ABCビルディング YF
+                                    </p>
+                                </div>
+                                <div class="access-info-item">
+                                    <p class="access-info-label">電話番号</p>
+                                    <p class="access-info-text">
+                                        <a href="tel:0312345678">03-1234-5678</a>
+                                    </p>
+                                </div>
+                                <div class="access-info-item">
+                                    <p class="access-info-label">診療時間</p>
+                                    <p class="access-info-text">
+                                        10:00～19:00（最終受付 18:30）
+                                    </p>
+                                </div>
+                                <div class="access-info-item">
+                                    <p class="access-info-label">休診日</p>
+                                    <p class="access-info-text">火曜日・日曜日・祝日</p>
+                                </div>
+                                <div class="access-info-item">
+                                    <p class="access-info-label">アクセス</p>
+                                    <p class="access-info-text">
+                                        JR渋谷駅 ハチ公口より徒歩5分<br>
+                                        東京メトロ銀座線 渋谷駅 宮益坂口より徒歩3分
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="access-cta">
+                                <a href="https://maps.google.com/?q=渋谷駅" target="_blank" class="btn btn-secondary">
+                                    <i class="fas fa-map-marker-alt"></i> Google Mapで見る
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="access-map animate-on-scroll-right">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.591690586904!2d139.70032281562554!3d35.66242918019876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b58b1959e69%3A0x2775172125410568!2z5riL6LC36aeF!5e0!3m2!1sja!2sjp!4v1622000000000!5m2!1sja!2sjp" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- News Section -->
         <section id="news" class="section news-section">
-            <div class="section-header">
-                <p class="section-title-en">NEWS & COLUMN</p>
-                <h2 class="section-title-ja">お知らせ・コラム</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="news-tabs">
-                <button class="news-tab active" data-category="all">すべて</button>
-                <button class="news-tab" data-category="notice">お知らせ</button>
-                <button class="news-tab" data-category="column">コラム</button>
-                <button class="news-tab" data-category="campaign-info">キャンペーン</button>
-            </div>
-            <div class="news-list">
-                <div class="news-item" data-category="notice">
-                    <div class="news-meta">
-                        <span class="news-date">2025.05.15</span>
-                        <span class="news-category notice">お知らせ</span>
-                    </div>
-                    <a href="#" class="news-title-link">夏季休業に関するお知らせ</a>
+            <div class="section-inner">
+                <div class="section-header animate-on-scroll">
+                    <p class="section-subtitle">NEWS & COLUMN</p>
+                    <h2 class="section-title">
+                        お知らせ・コラム
+                        <span>最新情報と美容に関する情報をお届け</span>
+                    </h2>
                 </div>
-                <div class="news-item" data-category="column">
-                    <div class="news-meta">
-                        <span class="news-date">2025.05.10</span>
-                        <span class="news-category column">コラム</span>
+                
+                <div class="news-container">
+                    <div class="news-tabs">
+                        <button class="news-tab active" data-category="all">すべて</button>
+                        <button class="news-tab" data-category="notice">お知らせ</button>
+                        <button class="news-tab" data-category="column">コラム</button>
+                        <button class="news-tab" data-category="campaign">キャンペーン</button>
                     </div>
-                    <a href="#" class="news-title-link">紫外線対策の重要性について専門医が解説</a>
-                </div>
-                <div class="news-item" data-category="campaign-info">
-                    <div class="news-meta">
-                        <span class="news-date">2025.05.01</span>
-                        <span class="news-category campaign">キャンペーン</span>
+                    
+                    <div class="news-list">
+                        <article class="news-item animate-on-scroll" data-category="notice">
+                            <div class="news-meta">
+                                <time class="news-date">2025.05.15</time>
+                                <span class="news-category notice">お知らせ</span>
+                            </div>
+                            <h3 class="news-title">夏季休業に関するお知らせ</h3>
+                        </article>
+
+                        <article class="news-item animate-on-scroll" data-category="column">
+                            <div class="news-meta">
+                                <time class="news-date">2025.05.10</time>
+                                <span class="news-category column">コラム</span>
+                            </div>
+                            <h3 class="news-title">紫外線対策の重要性について専門医が解説</h3>
+                        </article>
+
+                        <article class="news-item animate-on-scroll" data-category="campaign">
+                            <div class="news-meta">
+                                <time class="news-date">2025.05.01</time>
+                                <span class="news-category campaign">キャンペーン</span>
+                            </div>
+                            <h3 class="news-title">【5月限定】美肌応援キャンペーン開始！</h3>
+                        </article>
                     </div>
-                    <a href="#" class="news-title-link">【5月限定】美肌応援キャンペーン開始！</a>
+                    
+                    <div class="news-more">
+                        <a href="#" class="news-more-link">お知らせ一覧へ</a>
+                    </div>
                 </div>
-            </div>
-            <div class="news-more">
-                <a href="#">お知らせ・コラム一覧へ</a>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-main">
-                <h3 class="footer-logo-text">LALA Beauty Clinic</h3>
-                <p class="footer-info">
-                    〒150-0002 東京都渋谷区渋谷X-X-X ABCビルディング YF<br>
-                    TEL: <a href="tel:0312345678">03-1234-5678</a><br>
-                    診療時間: 10:00-19:00 (休診日: 火・日・祝)
-                </p>
-                 <a href="#" class="btn btn-primary footer-cta">WEB予約はこちら</a>
+            <div class="footer-top">
+                <div class="footer-main">
+                    <h3 class="footer-logo-text">LALA Beauty Clinic</h3>
+                    <p class="footer-info">
+                        〒150-0002 東京都渋谷区渋谷X-X-X ABCビルディング YF<br>
+                        TEL: <a href="tel:0312345678">03-1234-5678</a><br>
+                        診療時間: 10:00-19:00（休診日: 火・日・祝）
+                    </p>
+                    <a href="#" class="btn btn-primary footer-cta">WEB予約はこちら</a>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>施術メニュー</h4>
+                    <ul>
+                        <li><a href="#artmake">アートメイク</a></li>
+                        <li><a href="#zeoskin">ゼオスキン</a></li>
+                        <li><a href="#faga">FAGA</a></li>
+                        <li><a href="#romapink">ローマピンク</a></li>
+                        <li><a href="#shimi">シミ取り</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>クリニック情報</h4>
+                    <ul>
+                        <li><a href="#access">アクセス</a></li>
+                        <li><a href="#news">お知らせ</a></li>
+                        <li><a href="#">よくある質問</a></li>
+                        <li><a href="#">初めての方へ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-connect">
+                    <h4>SNS</h4>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LINE">
+                            <i class="fab fa-line"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="footer-sitemap">
-                <h4>サイトマップ</h4>
-                <nav class="footer-nav">
-                    <a href="#approach">LALAの総合美容アプローチ</a>
-                    <a href="#recommend">Recommend</a>
-                    <a href="#services">5つのビューティーアプローチ</a>
-                    <a href="#artmake">&nbsp;&nbsp;- アートメイク</a>
-                    <a href="#zeoskin">&nbsp;&nbsp;- ゼオスキン</a>
-                    <a href="#faga">&nbsp;&nbsp;- FAGA</a>
-                    <a href="#romapink">&nbsp;&nbsp;- ローマピンク</a>
-                    <a href="#shimi">&nbsp;&nbsp;- シミ取り</a>
-                    <a href="#reasons">LaLaが選ばれる理由</a>
-                    <a href="#access">アクセス・営業時間</a>
-                    <a href="#news">お知らせ・コラム</a>
-                </nav>
+
+            <div class="footer-bottom">
+                <div class="footer-legal-links">
+                    <a href="#">プライバシーポリシー</a>
+                    <a href="#">サイトマップ</a>
+                </div>
+                <p class="copyright">&copy; 2025 LALA Beauty Clinic. All Rights Reserved.</p>
             </div>
-            <div class="footer-connect">
-                 <h4>SNS</h4>
-                <div class="footer-social">
-                    <a href="#" class="social-link" aria-label="Instagram"><img src="images/instagram_icon.svg" alt="Instagram"></a> <a href="#" class="social-link" aria-label="LINE"><img src="images/line_icon.svg" alt="LINE"></a> </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="footer-legal-links">
-                 <a href="#">プライバシーポリシー</a>
-                 <a href="#">サイトマップ</a>
-            </div>
-            <p class="copyright">&copy; LALA Beauty Clinic. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- Fixed Action Buttons -->
     <div class="fixed-actions">
         <a href="#" class="fixed-btn fixed-btn-primary" aria-label="無料カウンセリング予約">
-            <span class="icon-calendar"></span> </a>
-        <a href="#" class="fixed-btn fixed-btn-line" aria-label="LINEで相談する">
-            <span class="icon-line"></span> </a>
+            <i class="fas fa-calendar-alt"></i>
+        </a>
+        <a href="#" class="fixed-btn fixed-btn-line" aria-label="LINEで相談">
+            <i class="fab fa-line"></i>
+        </a>
     </div>
 
-    <script>
-        window.addEventListener('load', function() {
-            const loadingScreen = document.getElementById('loading');
-            if (loadingScreen) {
-                loadingScreen.style.opacity = '0';
-                setTimeout(function() {
-                    loadingScreen.style.display = 'none';
-                }, 500);
-            }
-        });
-        // Other JS for menu, animations etc. would go into a separate main.js
-    </script>
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
 </body>
-</html>
+</html>>
+            </div>
+            <div class="hero-scroll">
+                <p class="hero-scroll-text">scroll</p>
+                <div class="hero-scroll-icon"></div>
+            </div>
+        </section>
+
+        <!-- Services Overview Section -->
+        <section id="services" class="section services-overview">
+            <div class="section-inner">
+                <div class="section-header animate-on-scroll">
+                    <p class="section-subtitle">OUR SERVICES</p>
+                    <h2 class="section-title">
+                        施術メニュー
+                        <span>お悩みに合わせて選べる5つの美容アプローチ</span>
+                    </h2>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-card-image">
+                            <img src="images/service-artmake.jpg" alt="アートメイク">
+                        </div>
+                        <div class="service-card-content">
+                            <h3 class="service-card-title">アートメイク</h3>
+                            <p class="service-card-description">
+                                すっぴんに自信を。毎日のメイク時間を短縮し、理想の眉・アイラインをキープ
+                            </p>
+                            <a href="#artmake" class="service-card-link">詳しく見る</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-card-image">
+                            <img src="images/service-zeoskin.jpg" alt="ゼオスキン">
+                        </div>
+                        <div class="service-card-content">
+                            <h3 class="service-card-title">ゼオスキン</h3>
+                            <p class="service-card-description">
+                                医療機関専売のスキンケアで、肌質から改善。透明感とハリのある健康的な肌へ
+                            </p>
+                            <a href="#zeoskin" class="service-card-link">詳しく見る</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-card-image">
+                            <img src="images/service-faga.jpg" alt="FAGA治療">
+                        </div>
+                        <div class="service-card-content">
+                            <h3 class="service-card-title">FAGA（女性向けAGA）</h3>
+                            <p class="service-card-description">
+                                女性のための薄毛治療。専門的なアプローチで、豊かなボリュームを取り戻す
+                            </p>
+                            <a href="#faga" class="service-card-link">詳しく見る</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-card-image">
+                            <img src="images/service-romapink.jpg" alt="ローマピンク">
+                        </div>
+                        <div class="service-card-content">
+                            <h3 class="service-card-title">ローマピンク</h3>
+                            <p class="service-card-description">
+                                デリケートゾーンの黒ずみを改善。自信を持てる美しい素肌へ導きます
+                            </p>
+                            <a href="#romapink" class="service-card-link">詳しく見る</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-card-image">
+                            <img src="images/service-shimi.jpg" alt="シミ取り">
+                        </div>
+                        <div class="service-card-content">
+                            <h3 class="service-card-title">シミ取り</h3>
+                            <p class="service-card-description">
+                                最新レーザーで気になるシミを徹底ケア。透明感あふれるクリアな肌へ
+                            </p>
+                            <a href="#shimi" class="service-card-link">詳しく見る</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campaign Section -->
+        <section id="campaign" class="section campaign-section">
+            <div class="section-inner">
+                <div class="section-header animate-on-scroll">
+                    <p class="section-subtitle">CAMPAIGN</p>
+                    <h2 class="section-title">
+                        お得なキャンペーン
+                        <span>期間限定の特別価格でご提供中</span>
+                    </h2>
+                </div>
+                
+                <div class="campaign-container">
+                    <div class="campaign-banner animate-on-scroll">
+                        <div class="campaign-inner">
+                            <div class="campaign-image">
+                                <img src="images/campaign-summer.jpg" alt="夏の美肌準備キャンペーン">
+                            </div>
+                            <div class="campaign-content">
+                                <span class="campaign-badge">期間限定</span>
+                                <h3 class="campaign-title">夏の美肌準備キャンペーン</h3>
+                                <p class="campaign-description">
+                                    シミ取りレーザー + 美白点滴のセットが今なら30%OFF。
+                                    紫外線が強くなる前に、透明感のある肌を手に入れましょう。
+                                </p>
+                                <p class="campaign-period">キャンペーン期間: 2025年6月1日～6月30日</p>
+                                <a href="#" class="btn btn-primary">キャンペーン詳細を見る</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Details Section -->
+        <section id="service-details" class="section service-details">
+            <div class="section-inner">
+                <div class="section-header animate-on-scroll">
+                    <p class="section-subtitle">SERVICE DETAILS</p>
+                    <h2 class="section-title">
+                        施術詳細
+                        <span>各施術の特徴とメリットをご紹介</span>
+                    </h2>
+                </div>
+                
+                <div class="service-detail-list">
+                    <!-- アートメイク -->
+                    <div class="service-detail-item animate-on-scroll" id="artmake">
+                        <div class="service-detail-card">
+                            <div class="service-detail-inner">
+                                <div class="service-detail-image">
+                                    <img src="images/artmake-detail.jpg" alt="アートメイク">
+                                </div>
+                                <div class="service-detail-content">
+                                    <h3 class="service-detail-title">アートメイク</h3>
+                                    <p class="service-detail-description">
+                                        LALAのアートメイクは、黄金比に基づいたオーダーメイドデザイン。
+                                        医療機関だからできる、安心・安全な施術で、あなたの魅力を最大限に引き出します。
+                                        毎朝のメイク時間も大幅に短縮できます。
+                                    </p>
+                                    <ul class="service-detail-features">
+                                        <li>経験豊富な専門アーティストが担当</li>
+                                        <li>FDA認可の安全な色素を使用</li>
+                                        <li>徹底した衛生管理とアフターフォロー</li>
+                                        <li>自然で美しい仕上がり</li>
+                                    </ul>
+                                    <div class="service-detail-buttons">
+                                        <a href="#" class="btn btn-primary">詳細を見る</a>
+                                        <a href="#" class="btn btn-line">LINEで相談</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ゼオスキン -->
+                    <div class="service-detail-item animate-on-scroll" id="zeoskin">
+                        <div class="service-detail-card">
+                            <div class="service-detail-inner">
+                                <div class="service-detail-image">
+                                    <img src="images/zeoskin-detail.jpg" alt="ゼオスキン">
+                                </div>
+                                <div class="service-detail-content">
+                                    <h3 class="service-detail-title">ゼオスキン</h3>
+                                    <p class="service-detail-description">
+                                        医師の指導のもと、ご自宅で行うスキンケアプログラム。
+                                        しみ、しわ、ニキビ跡など、様々なお肌の悩みを改善し、
+                                        健康的で美しい肌へと導きます。
+                                    </p>
+                                    <ul class="service-detail-features">
+                                        <li>医師によるカスタマイズプログラム</li>
+                                        <li>医療機関専売の高濃度成分</li>
+                                        <li>継続的なフォローアップで安心</li>
+                                        <li>肌質から根本的に改善</li>
+                                    </ul>
+                                    <div class="service-detail-buttons">
+                                        <a href="#" class="btn btn-primary">詳細を見る</a>
+                                        <a href="#" class="btn btn-line">LINEで相談</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAGA -->
+                    <div class="service-detail-item animate-on-scroll" id="faga">
+                        <div class="service-detail-card">
+                            <div class="service-detail-inner">
+                                <div class="service-detail-image">
+                                    <img src="images/faga-detail.jpg" alt="FAGA治療">
+                                </div>
+                                <div class="service-detail-content">
+                                    <h3 class="service-detail-title">FAGA（女性向けAGA治療）</h3>
+                                    <p class="service-detail-description">
+                                        女性特有の薄毛・抜け毛のお悩みに、専門的な治療で応えます。
+                                        内服薬や外用薬、注入治療など、症状に合わせた最適なプランをご提案。
+                                        諦めていた方も、もう一度自信を取り戻しましょう。
+                                    </p>
+                                    <ul class="service-detail-features">
+                                        <li>女性の薄毛治療に特化した専門医</li>
+                                        <li>プライバシーに配慮した個室対応</li>
+                                        <li>発毛・育毛を促す多様な治療法</li>
+                                        <li>効果を実感しやすい最新治療</li>
+                                    </ul>
+                                    <div class="service-detail-buttons">
+                                        <a href="#" class="btn btn-primary">詳細を見る</a>
+                                        <a href="#" class="btn btn-line">LINEで相談</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ローマピンク -->
+                    <div class="service-detail-item animate-on-scroll" id="romapink">
+                        <div class="service-detail-card">
+                            <div class="service-detail-inner">
+                                <div class="service-detail-image">
+                                    <img src="images/romapink-detail.jpg" alt="ローマピンク">
+                                </div>
+                                <div class="service-detail-content">
+                                    <h3 class="service-detail-title">ローマピンク</h3>
+                                    <p class="service-detail-description">
+                                        誰にも相談しづらいデリケートゾーンの黒ずみ。
+                                        医療レーザー治療や専用ピーリングで、本来の美しいピンク色へ導きます。
+                                        自信を持ってファッションやパートナーシップを楽しめるように。
+                                    </p>
+                                    <ul class="service-detail-features">
+                                        <li>女性医師・スタッフが対応可能</li>
+                                        <li>最新の医療レーザー機器を使用</li>
+                                        <li>短期間で効果を実感しやすい治療</li>
+                                        <li>痛みに配慮した施術</li>
+                                    </ul>
+                                    <div class="service-detail-buttons">
+                                        <a href="#" class="btn btn-primary">詳細を見る</a>
+                                        <a href="#" class="btn btn-line">LINEで相談</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- シミ取り -->
+                    <div class="service-detail-item animate-on-scroll" id="shimi">
+                        <div class="service-detail-card">
+                            <div class="service-detail-inner">
+                                <div class="service-detail-image">
+                                    <img src="images/shimi-detail.jpg" alt="シミ取り">
+                                </div>
+                                <div class="service-detail-content">
+                                    <h3 class="service-detail-title">シミ取り</h3>
+                                    <p class="service-detail-description">
+                                        気になる顔や体のシミを、医療レーザーで根本から改善。
+                                        シミの種類や肌質に合わせて最適な治療法を選択し、
+                                        透明感のあるワントーン明るい肌を目指します。
+                                    </p>
+                                    <ul class="service-detail-features">
+                                        <li>シミの種類を的確に診断</li>
+                                        <li>Qスイッチレーザーなど多様な機器</li>
+                                        <li>アフターケアまでしっかりサポート</li>
+                                        <li>ダウンタイムに配慮した治療</li>
+                                    </ul>
+                                    <div class="service-detail-buttons">
+                                        <a href="#" class="btn btn-primary">詳細を見る</a>
+                                        <a href="#" class="btn btn-line">LINEで相談</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div
