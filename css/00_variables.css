@@ -1,0 +1,20 @@
+/* css/00_variables.css */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;600&family=Lora:wght@400;500&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    --primary-gold: #B8956F;
+    --primary-pink: #E4A5A0;
+    --secondary-pink: #FAF4F4;
+    --accent-pink: #F7E8E8;
+    --text-main: #333333;
+    --text-sub: #666666;
+    --text-light: #999999;
+    --bg-cream: #FFF9F5;
+    --bg-beige: #F8F4F0;
+    --white: #FFFFFF;
+    --border-light: #E8E8E8;
+    --shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --line-green: #00B900;
+    --line-green-hover: #009900;
+}
