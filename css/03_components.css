@@ -401,21 +401,24 @@
 }
 
 /* --- Footer Components --- */
-.footer-logo-text { /* Renamed from .footer-logo in HTML */
+.footer-logo-text {
     font-family: 'Poppins', sans-serif;
-    font-size: 28px;
-    margin-bottom: 30px;
+    font-size: 1.75rem;
+    margin-bottom: var(--space-lg);
     letter-spacing: 0.05em;
-    font-weight: 300;
+    font-weight: 400;
+    color: var(--white);
 }
 .footer-info {
-    font-size: 15px;
-    line-height: 2;
-    margin-bottom: 30px;
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    margin-bottom: var(--space-lg);
     opacity: 0.8;
 }
 .footer-info a { color: var(--primary-gold); text-decoration: none; }
-.footer-info a:hover { text-decoration: underline;}
+.footer-info a:hover {
+    text-decoration: underline;
+}
 
 .footer-nav { /* In footer sitemap */
     display: flex;
@@ -449,8 +452,15 @@
     /* Specific overrides if .btn is too generic */
     padding: 14px 35px;
 }
-
-
+.footer-nav h4, .footer-connect h4 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--primary-gold);
+    margin-bottom: var(--space-md);
+}
+.footer-nav ul li {
+    margin-bottom: var(--space-sm);
+}
 .footer-social {
     display: flex;
     gap: 20px;
