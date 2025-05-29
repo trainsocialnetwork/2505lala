@@ -1,0 +1,535 @@
+/* css/03_components.css */
+
+/* --- Logo --- */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: opacity 0.3s ease;
+}
+.logo:hover {
+    opacity: 0.8;
+}
+.logo img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--primary-gold);
+}
+
+/* --- Navigation (PC) --- */
+.nav-menu {
+    display: none; /* Mobile: hidden */
+}
+.nav-menu a { /* Common style for PC nav links */
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-gold);
+    transition: width 0.3s ease;
+}
+.nav-menu a:hover {
+    color: var(--primary-gold);
+}
+.nav-menu a:hover::after {
+    width: 100%;
+}
+.nav-cta.btn { /* PC nav CTA button - uses .btn general style */
+    padding: 12px 30px; /* Override .btn if needed */
+    /* background: var(--primary-gold); color: var(--white); are from .btn-primary or similar */
+}
+.nav-cta:hover { /* Specific hover for nav CTA */
+    background: #9b7a59; /* Darken primary-gold */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(184, 149, 111, 0.3);
+}
+.nav-cta::after { /* Remove underline effect */
+    display: none;
+}
+
+
+/* --- Hamburger Menu Trigger --- */
+.menu-trigger {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+.menu-trigger:hover {
+    background-color: var(--secondary-pink);
+}
+.menu-trigger span {
+    display: block;
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: var(--text-main);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.menu-trigger span:nth-child(1) { top: 19px; }
+.menu-trigger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.menu-trigger span:nth-child(3) { bottom: 19px; }
+
+.menu-trigger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); top: 50%; }
+.menu-trigger.active span:nth-child(2) { opacity: 0; }
+.menu-trigger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); top: 50%; bottom: auto; }
+
+/* --- Drawer Menu --- */
+.drawer-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 350px;
+    height: 100vh;
+    background: var(--white);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    z-index: 1001;
+}
+.drawer-menu.active { right: 0; }
+.drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+.drawer-overlay.active { opacity: 1; visibility: visible; }
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    height: 70px;
+    border-bottom: 1px solid var(--border-light);
+}
+.drawer-logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--primary-gold);
+}
+.drawer-close {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    font-size: 24px;
+    color: var(--text-sub);
+    line-height: 1;
+}
+.drawer-close:hover { background-color: var(--secondary-pink); }
+.drawer-nav { padding: 30px 0; }
+.drawer-nav > a {
+    display: block;
+    padding: 18px 30px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+}
+.drawer-nav > a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+    right: 30px;
+    height: 1px;
+    background: var(--border-light);
+}
+.drawer-nav > a:hover { background: var(--secondary-pink); color: var(--primary-gold); }
+.drawer-submenu { background: var(--bg-beige); padding: 15px 0; }
+.drawer-submenu a {
+    display: block;
+    padding: 12px 50px;
+    color: var(--text-sub);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+.drawer-submenu a:hover { color: var(--primary-gold); padding-left: 55px; }
+.drawer-cta.btn { /* Uses .btn general style */
+    margin: 30px;
+    display: block; /* Ensure it takes full width within margin */
+}
+.drawer-contact { padding: 30px; text-align: center; background: var(--bg-beige); border-top: 1px solid var(--border-light); }
+.drawer-contact p { font-size: 13px; color: var(--text-sub); margin-bottom: 10px; }
+.drawer-contact a { font-size: 20px; color: var(--primary-gold); text-decoration: none; font-weight: 500; letter-spacing: 0.05em; }
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+.btn-primary {
+    background: var(--primary-gold);
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(184, 149, 111, 0.25);
+}
+.btn-primary:hover {
+    background: #9b7a59; /* Darken */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(184, 149, 111, 0.35);
+}
+.btn-secondary {
+    background: var(--white);
+    color: var(--primary-gold);
+    border: 2px solid var(--primary-gold);
+}
+.btn-secondary:hover {
+    background: var(--primary-gold);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+.btn-line {
+    background: var(--line-green);
+    color: var(--white);
+    /* box-shadow specific to line button if needed */
+}
+.btn-line:hover {
+    background: var(--line-green-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 185, 0, 0.3);
+}
+.btn-service { /* Modifier for buttons in service-details */
+    flex: 1;
+    min-width: 200px;
+}
+
+
+/* --- Cards (Service Cards & Reason Blocks) --- */
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.service-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    opacity: 0; /* For JS animation */
+    transform: translateY(30px); /* For JS animation */
+    display: flex;
+    flex-direction: column;
+}
+.service-card.visible { opacity: 1; transform: translateY(0); }
+.service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
+.service-card-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+.service-card-image::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.3) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.service-card:hover .service-card-image::after { opacity: 1; }
+.service-card-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;}
+.service-card h3 { font-size: 20px; margin-bottom: 15px; font-weight: 500; letter-spacing: 0.02em; }
+.service-card p { font-size: 14px; color: var(--text-sub); line-height: 1.8; margin-bottom: 20px; flex-grow: 1; }
+.service-card-link {
+    color: var(--primary-gold);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s ease;
+}
+.service-card-link::after { content: '→'; font-size: 16px; }
+.service-card:hover .service-card-link { gap: 15px; }
+
+.reason-blocks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.reason-block {
+    background: var(--white);
+    padding: 50px 35px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0; /* For JS animation */
+    transform: translateY(30px); /* For JS animation */
+    position: relative;
+    overflow: hidden;
+}
+.reason-block.visible { opacity: 1; transform: translateY(0); }
+.reason-block:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
+.reason-block::before { /* Optional decorative background */
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover; background-position: center; opacity: 0.05; z-index: 0;
+}
+.reason-icon {
+    position: relative; z-index: 1;
+    width: 80px; height: 80px;
+    background: var(--secondary-pink);
+    color: var(--primary-gold); /* Icon color */
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 30px;
+    font-size: 36px;
+    transition: all 0.3s ease;
+}
+.reason-block:hover .reason-icon { background: var(--primary-gold); color: var(--white); transform: scale(1.1); }
+.reason-title { position: relative; z-index: 1; font-size: 20px; margin-bottom: 20px; font-weight: 500; letter-spacing: 0.02em; }
+.reason-description-sub { /* Renamed from .reason-description in HTML */
+    position: relative; z-index: 1; font-size: 15px; color: var(--text-sub); line-height: 1.8;
+}
+
+
+/* --- Fixed Action Buttons (Bottom Right) --- */
+.fixed-actions {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 999;
+}
+.fixed-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 24px; /* Icon size */
+    color: var(--white);
+}
+.fixed-btn-primary { background: var(--primary-gold); }
+.fixed-btn-line { background: var(--line-green); }
+.fixed-btn:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+.icon-calendar, .icon-line { /* Placeholder for actual icons */
+    /* If using icon font, it will provide the content */
+    /* If SVG, use <img> or background-image */
+}
+
+
+/* --- Left Fixed Menu (PC Only) --- */
+.left-fixed-menu { display: none; /* Mobile: hidden */ }
+
+/* --- Loading Screen --- */
+.loading {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease; /* For JS fade out */
+}
+.loading-spinner {
+    width: 50px; height: 50px;
+    border: 3px solid var(--border-light);
+    border-top-color: var(--primary-gold);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+/* --- Footer Components --- */
+.footer-logo-text { /* Renamed from .footer-logo in HTML */
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    margin-bottom: 30px;
+    letter-spacing: 0.05em;
+    font-weight: 300;
+}
+.footer-info {
+    font-size: 15px;
+    line-height: 2;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+.footer-info a { color: var(--primary-gold); text-decoration: none; }
+.footer-info a:hover { text-decoration: underline;}
+
+.footer-nav { /* In footer sitemap */
+    display: flex;
+    flex-direction: column; /* Default for sitemap list */
+    align-items: center; /* Mobile default */
+    gap: 10px; /* Reduced gap for sitemap links */
+    margin-bottom: 30px;
+}
+.footer-nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 15px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    position: relative;
+}
+.footer-nav a::after { /* Underline effect */
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--primary-gold);
+    transition: width 0.3s ease;
+}
+.footer-nav a:hover { opacity: 1; color: var(--primary-gold); }
+.footer-nav a:hover::after { width: 100%; }
+
+.footer-cta.btn { /* Footer CTA button uses .btn */
+    /* Specific overrides if .btn is too generic */
+    padding: 14px 35px;
+}
+
+
+.footer-social {
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* Mobile default */
+}
+.social-link {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white); /* Icon color */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 20px; /* Icon size if using font */
+}
+.social-link img { /* If using img for SVG icons */
+    width: 20px; /* Adjust as needed */
+    height: 20px; /* Adjust as needed */
+}
+.social-link:hover { background: var(--primary-gold); transform: translateY(-3px); }
+
+.copyright { font-size: 13px; opacity: 0.6; letter-spacing: 0.05em; }
+.footer-legal-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.3s ease;
+}
+.footer-legal-links a:hover {
+    color: var(--primary-gold);
+}
+
+
+/* --- PC Styles for Components --- */
+@media (min-width: 1024px) {
+    .nav-menu {
+        display: flex;
+        gap: 35px;
+        align-items: center;
+        list-style: none;
+    }
+    .menu-trigger { display: none; } /* Hide hamburger on PC */
+
+    .left-fixed-menu {
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 250px;
+        background: var(--white);
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
+        border-radius: 0 30px 30px 0;
+        z-index: 998;
+        max-height: 80vh;
+        overflow: hidden;
+    }
+    .left-menu-header { padding: 30px 25px 25px; border-bottom: 1px solid var(--border-light); }
+    .left-menu-title { font-size: 16px; font-weight: 500; line-height: 1.6; color: var(--text-main); }
+    .left-menu-items { max-height: calc(80vh - 120px); overflow-y: auto; padding: 20px 0; }
+    .left-menu-items::-webkit-scrollbar { width: 6px; }
+    .left-menu-items::-webkit-scrollbar-track { background: var(--bg-beige); }
+    .left-menu-items::-webkit-scrollbar-thumb { background: var(--primary-gold); border-radius: 3px; }
+    .left-menu-item { position: relative; padding: 20px 25px; cursor: pointer; transition: all 0.3s ease; border-bottom: 1px solid var(--border-light); }
+    .left-menu-item:last-child { border-bottom: none; }
+    .left-menu-item:hover { background: var(--secondary-pink); padding-left: 30px; }
+    .left-menu-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.03; background-size: cover; background-position: center; z-index: -1; transition: opacity 0.3s ease;}
+    .left-menu-item:hover .left-menu-bg { opacity: 0.06; }
+    .left-menu-service { font-size: 16px; font-weight: 500; margin-bottom: 8px; color: var(--text-main); position: relative; z-index: 1; }
+    .left-menu-desc { font-size: 13px; color: var(--text-sub); margin-bottom: 15px; line-height: 1.6; position: relative; z-index: 1; }
+    .left-menu-btn { display: inline-block; padding: 8px 20px; background: var(--primary-gold); color: var(--white); border-radius: 25px; text-decoration: none; font-size: 13px; font-weight: 500; transition: all 0.3s ease; position: relative; z-index: 1; }
+    .left-menu-btn:hover { background: #9b7a59; transform: translateX(5px); }
+
+    .service-cards { grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    .reason-blocks { grid-template-columns: repeat(2, 1fr); gap: 50px; }
+
+    .footer-nav { align-items: flex-start; } /* Align sitemap links to left on PC */
+    .footer-social { justify-content: flex-start; } /* Align social icons to left on PC */
+}

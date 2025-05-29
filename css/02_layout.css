@@ -1,0 +1,167 @@
+/* css/02_layout.css */
+
+/* Header Layout */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--white);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 70px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Main Content Layout */
+main {
+    /* Placeholder for PC margin-left if left-fixed-menu is active */
+}
+
+/* Section Common Layout */
+.section {
+    padding: 100px 20px;
+    position: relative;
+}
+
+.section:nth-child(even) { /* Applies to direct children of main or other container */
+    background: var(--bg-beige);
+}
+/* Specific section backgrounds are handled in 04_sections.css if different */
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    opacity: 0; /* Default for JS animation */
+    transform: translateY(30px); /* Default for JS animation */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* If .visible class is added */
+}
+
+.section-header.visible { /* JS will add this class */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-title-en {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    color: var(--primary-gold);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.section-title-ja {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 300;
+    margin-bottom: 30px;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+}
+
+.section-line {
+    width: 50px;
+    height: 1px;
+    background: var(--primary-gold);
+    margin: 0 auto 40px;
+}
+
+.section-description {
+    font-size: 16px;
+    color: var(--text-sub);
+    line-height: 2;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Footer Layout */
+footer {
+    background: #2A2A2A;
+    color: var(--white);
+    padding: 80px 20px 30px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
+}
+
+.footer-main {
+    margin-bottom: 30px;
+}
+.footer-sitemap, .footer-connect {
+    margin-bottom: 30px;
+}
+.footer-sitemap h4, .footer-connect h4 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--primary-gold);
+    margin-bottom: 20px;
+}
+
+
+.footer-bottom {
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column; /* Mobile default */
+    align-items: center; /* Mobile default */
+    gap: 20px;
+}
+.footer-legal-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center; /* Mobile default */
+}
+
+
+/* --- PC Styles for Layout --- */
+@media (min-width: 1024px) {
+    .header-inner {
+        padding: 0 40px;
+        height: 80px;
+    }
+
+    main {
+        margin-left: 270px; /* If left-fixed-menu is present and this width */
+    }
+
+    .section {
+        padding: 120px 40px;
+    }
+
+    .footer-content {
+        grid-template-columns: 2fr 1fr 1fr; /* logo_info | sitemap | connect */
+        gap: 60px; /* Reduced gap from 80px */
+        text-align: left;
+    }
+    .footer-sitemap h4, .footer-connect h4 {
+         text-align: left;
+    }
+
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .footer-legal-links {
+        justify-content: flex-start;
+    }
+}

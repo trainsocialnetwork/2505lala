@@ -1,0 +1,367 @@
+/* css/04_sections.css */
+
+/* --- Hero Section --- */
+.hero {
+    margin-top: 70px;
+    position: relative;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, var(--secondary-pink) 0%, var(--white) 100%);
+    overflow: hidden;
+    text-align: center;
+}
+.hero-bg-decoration {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(228, 165, 160, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(184, 149, 111, 0.08) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+    z-index: 0;
+}
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.hero-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--primary-gold);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+.hero-title {
+    font-size: clamp(32px, 7vw, 52px);
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 30px;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.2s forwards;
+}
+.hero-title strong {
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-pink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.hero-subtitle-bottom {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--text-sub);
+    margin-bottom: 40px;
+    letter-spacing: 0.02em;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.4s forwards;
+}
+.hero-lead {
+    font-size: 16px;
+    line-height: 2;
+    color: var(--text-sub);
+    margin-bottom: 50px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.6s forwards;
+}
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.8s forwards;
+}
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--primary-gold);
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0;
+    animation: fadeIn 1s ease 1s forwards;
+    z-index: 1;
+}
+.scroll-indicator::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 50px;
+    background: var(--primary-gold);
+    margin: 0 auto 15px;
+    animation: scrollLine 2s ease-in-out infinite;
+}
+
+/* --- Approach Section (#approach) --- */
+/* Specific styles for #approach are minimal as .service-cards handles most */
+/* .service-cards grid defined in 03_components.css */
+
+/* --- Campaign Section / Recommend Section (#recommend) --- */
+.campaign-section {
+    background: var(--secondary-pink); /* Section specific background */
+}
+.campaign-banner {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    opacity: 0; /* For JS animation */
+    transform: translateY(30px); /* For JS animation */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.campaign-banner.visible { opacity: 1; transform: translateY(0); }
+.campaign-image {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-pink) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+.campaign-image::before {
+    content: '';
+    position: absolute;
+    width: 200%; height: 200%;
+    background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+    animation: slide 20s linear infinite;
+    z-index: 0;
+}
+.campaign-image-text {
+    position: relative; z-index: 1;
+    color: var(--white);
+    font-size: 32px;
+    font-weight: 300;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.campaign-content { padding: 50px 40px; text-align: center; }
+.campaign-badge {
+    display: inline-block;
+    background: var(--accent-pink);
+    color: var(--primary-pink);
+    padding: 8px 25px;
+    border-radius: 30px;
+    font-size: 13px;
+    margin-bottom: 25px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+.campaign-title.serif { /* Ensure .serif is applied or style directly */
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-family: 'Noto Serif JP', serif; /* Explicitly set */
+    letter-spacing: 0.02em;
+}
+.campaign-description { font-size: 16px; color: var(--text-sub); line-height: 1.8; margin-bottom: 25px; }
+.campaign-period { font-size: 14px; color: var(--primary-gold); margin-bottom: 35px; font-weight: 500; }
+.campaign-content .btn-primary { /* CTA inside campaign */
+    /* Uses .btn and .btn-primary from 03_components.css */
+}
+
+
+/* --- Service Details Section (#services) --- */
+.service-details-wrapper { /* Wrapper for all service detail blocks */
+    background: var(--white); /* Default background for this section */
+}
+/* .service-details-wrapper .section-header { ... } /* Already styled by common .section-header */
+
+.service-detail-block {
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    padding: 50px;
+    border-radius: 30px;
+    background: var(--bg-beige);
+    opacity: 0; /* For JS animation */
+    transform: translateY(30px); /* For JS animation */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.service-detail-block.visible { opacity: 1; transform: translateY(0); }
+.service-detail-block:nth-child(even) { background: var(--secondary-pink); } /* nth-child refers to siblings *within its parent* */
+
+.service-image {
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    position: relative;
+}
+.service-image::after {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+    border-radius: 20px;
+}
+/* .service-detail-content {} /* No specific style, acts as a container */
+.service-name {
+    font-size: 32px;
+    margin-bottom: 25px;
+    font-weight: 400;
+    font-family: 'Noto Serif JP', serif;
+    position: relative;
+    padding-left: 20px;
+}
+.service-name::before {
+    content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+    width: 4px; height: 30px; background: var(--primary-gold); border-radius: 2px;
+}
+.service-description-main { /* Renamed in HTML */
+    font-size: 16px; line-height: 2; margin-bottom: 35px; color: var(--text-sub);
+}
+.service-points { list-style: none; padding-left: 0; margin-bottom: 40px; }
+.service-points li {
+    position: relative; padding-left: 35px; margin-bottom: 20px;
+    font-size: 15px; line-height: 1.8;
+}
+.service-points li::before { /* Bullet bg */
+    content: ''; position: absolute; left: 0; top: 8px;
+    width: 20px; height: 20px; background: var(--primary-gold); border-radius: 50%;
+}
+.service-points li::after { /* Bullet checkmark */
+    content: '✓'; position: absolute; left: 5px; top: 6px;
+    color: var(--white); font-size: 12px; font-weight: bold;
+}
+.service-buttons { display: flex; flex-wrap: wrap; gap: 20px; }
+/* .btn-service is in 03_components.css */
+
+
+/* --- Reasons Section (#reasons) --- */
+.reasons-section {
+    background: var(--bg-beige); /* Section specific background */
+}
+/* .reason-blocks grid defined in 03_components.css */
+
+
+/* --- Access Section (#access) --- */
+.access-section {
+    background: var(--white); /* Section specific background */
+}
+.access-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+}
+.access-info {
+    background: var(--bg-beige);
+    padding: 50px;
+    border-radius: 30px;
+    opacity: 0; /* For JS animation */
+    transform: translateY(30px); /* For JS animation */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.access-info.visible { opacity: 1; transform: translateY(0); }
+.access-item { margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid var(--border-light); }
+.access-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.access-label { font-weight: 500; display: block; margin-bottom: 10px; font-size: 18px; color: var(--primary-gold); }
+.access-item p { font-size: 15px; line-height: 1.8; color: var(--text-sub); }
+.access-item p a { color: var(--text-sub); text-decoration: none; }
+.access-item p a:hover { color: var(--primary-gold); text-decoration: underline; }
+.access-item strong { color: var(--text-main); font-weight: 500; }
+.access-map {
+    width: 100%; height: 300px; border-radius: 30px; overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    opacity: 0; /* For JS animation */
+    transform: translateY(30px); /* For JS animation */
+    transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s; /* Delayed */
+}
+.access-map.visible { opacity: 1; transform: translateY(0); }
+.access-map iframe { width: 100%; height: 100%; border: 0; }
+.access-cta { margin-top: 30px; }
+.access-cta .btn-secondary { /* Uses .btn and .btn-secondary from 03_components.css */ }
+
+
+/* --- News Section (#news) --- */
+.news-section {
+    background: var(--bg-beige); /* Section specific background */
+}
+.news-tabs { display: flex; justify-content: center; gap: 20px; margin-bottom: 50px; flex-wrap: wrap; }
+.news-tab {
+    padding: 10px 30px; background: transparent; border: 1px solid var(--border-light);
+    border-radius: 30px; color: var(--text-sub); cursor: pointer; transition: all 0.3s ease;
+    font-weight: 500; font-size: 15px; outline: none;
+}
+button.news-tab { /* If using <button> */ }
+.news-tab.active, .news-tab:hover { background: var(--primary-gold); color: var(--white); border-color: var(--primary-gold); }
+.news-list { max-width: 900px; margin: 0 auto; }
+.news-item {
+    padding: 30px 0; border-bottom: 1px solid var(--border-light);
+    opacity: 0; /* For JS animation */
+    transform: translateY(20px); /* For JS animation */
+    transition: all 0.6s ease, background-color 0.3s, box-shadow 0.3s, margin 0.3s, padding 0.3s;
+}
+.news-item.visible { opacity: 1; transform: translateY(0); }
+.news-item:hover {
+    background: var(--white); margin: 0 -30px; padding: 30px;
+    border-radius: 20px; border-bottom-color: transparent; box-shadow: var(--shadow-soft);
+}
+.news-item:last-child { border-bottom: none; }
+.news-meta { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; flex-wrap: wrap; }
+.news-date { font-family: 'Poppins', sans-serif; font-size: 14px; color: var(--text-light); font-weight: 300; }
+.news-category {
+    display: inline-block; padding: 5px 20px; background: var(--primary-gold); color: var(--white);
+    border-radius: 20px; font-size: 12px; font-weight: 500; letter-spacing: 0.05em; text-transform: capitalize;
+}
+.news-category.notice { /* Match data-category in HTML for JS */ }
+.news-category.column { background: var(--primary-pink); }
+.news-category.campaign-info, .news-category.campaign { background: #FF6B6B; } /* For campaign news */
+.news-title-link { /* Renamed from .news-title in HTML */
+    display: block; color: var(--text-main); text-decoration: none;
+    font-size: 18px; font-weight: 500; line-height: 1.6; transition: color 0.3s ease;
+}
+.news-item:hover .news-title-link { color: var(--primary-gold); }
+.news-more { text-align: center; margin-top: 50px; }
+.news-more a {
+    color: var(--primary-gold); text-decoration: none; font-weight: 500; font-size: 16px;
+    display: inline-flex; align-items: center; gap: 10px; transition: gap 0.3s ease, color 0.3s ease;
+}
+.news-more a::after { content: '→'; font-size: 20px; transition: transform 0.3s ease; }
+.news-more a:hover { gap: 20px; color: #9b7a59; }
+.news-more a:hover::after { transform: translateX(5px); }
+
+
+/* --- PC Styles for Sections --- */
+@media (min-width: 1024px) {
+    .hero { margin-top: 80px; min-height: calc(100vh - 80px); }
+    .hero-content { padding: 80px 40px; }
+
+    .campaign-banner { display: flex; align-items: center; }
+    .campaign-image { flex: 0 0 45%; height: 400px; }
+    .campaign-content { flex: 1; padding: 60px; text-align: left; }
+
+    .service-detail-block { display: flex; align-items: center; gap: 60px; padding: 60px; }
+    .service-detail-block:nth-child(even) { flex-direction: row-reverse; }
+    .service-image { flex: 0 0 400px; height: 300px; margin-bottom: 0; }
+    .service-detail-content { flex: 1; }
+    .service-buttons { flex-wrap: nowrap; }
+
+    .access-content { grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .access-map { height: 400px; }
+}
